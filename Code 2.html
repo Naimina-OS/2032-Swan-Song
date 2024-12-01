@@ -223,7 +223,7 @@ function geo_calc(num,mult) {
 	if (num >= 0) {
 		return 1+mult*0.06*(1-Math.pow(0.8, num))/0.2;
 	} else {
-		return 1-mult*0.08*(1-Math.pow(0.9, -num))/0.1;
+		return 1-mult*0.06*(1-Math.pow(1.2, -num))/-0.2;
 	}
 }
 
