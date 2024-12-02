@@ -287,7 +287,7 @@ function turnout_feedback() {
 	}
 	if (factionnum == 4) {
 		campaignTrail_temp.answer_feedback_json[getAnswerFeedbackNumberFromPk("340001")].fields.answer_feedback = `
-		The Movement materializes all around you, slowly, then all at once. You can feel it, in the earth and in the sky, like a silent song of an angry storm. The polls begin to swing hard in your direction, but you’re down deeply in the polls. Let’s hope you make it.`;
+		The Movement materializes all around you, slowly, then all at once. You can feel it, in the earth and in the sky, like a sound of an angry storm. The polls begin to swing hard in your direction, but you’re down deeply in the polls. Let’s hope you make it.`;
 	}
 	if (factionnum == 3) {
 		campaignTrail_temp.answer_feedback_json[getAnswerFeedbackNumberFromPk("340001")].fields.answer_feedback = `
@@ -774,6 +774,11 @@ cyoAdventure = function (a) {
 	}
 	if (ans == 210004) {
 		populist += 1;
+	}
+	if (ans == 270004) {
+		campaignTrail_temp.questions_json[27].fields.description = "Over 200 people are dead in the aftermath of the numerous Autonomous Zones, with many mayors refusing to intervene out of ideological loyalty. Both the Regime and the Movement had their role to play in the needless deaths today. Newsom gave a full-hearted condemnation of the matter. Hundreds of businesses lost, thousands of livelihoods ruined. What is your response?";
+		changeAnswer(280001,"hidden");
+		changeAnswer(280002,"question_28");
 	}
 	total_points = technocapitalist + christian + darwinist + populist;
 	if (total_points >= 10) {
@@ -2050,6 +2055,14 @@ campaignTrail_temp.answers_json = [
     },
 	{
         "model": "campaign_trail.answer",
+        "pk": 280002,
+        "fields": {
+            "question": "hidden",
+            "description": "To everyone out there supporting me, we have to stop the violence. Only retaliate in self defense. Stand back and stand down."
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
         "pk": 290001,
         "fields": {
             "question": "question_29",
@@ -3131,6 +3144,15 @@ campaignTrail_temp.answer_feedback_json = [
             "answer": 280001,
             "candidate": 300,
             "answer_feedback": "As much as this might boil your blood, there is nothing left to do but move forward."
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "",
+        "fields": {
+            "answer": 280002,
+            "candidate": 300,
+            "answer_feedback": "Despite your best attempts to diffuse this situation, the blood has already been spilt. There's not much left to do but to move forward."
         }
     },
 	{
