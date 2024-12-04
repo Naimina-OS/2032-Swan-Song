@@ -1,7 +1,7 @@
 campaignTrail_temp.cyoa = true;
 image_dict = {
 	"the movement": "https://i.imgur.com/I3FfjPK.png",
-	"vance": "https://i.imgur.com/l58Tcby.png",
+	"vance": "https://i.imgur.com/vtPFPmJ.png",
 	"the regime": "https://i.imgur.com/8PkCWxu.png",
 	"newsom": "https://i.imgur.com/sHxRtqz.png",
 	"black": "https://i.imgur.com/Xl1mgtP.png",
@@ -14,10 +14,60 @@ image_dict = {
 	"mike lee": "https://i.imgur.com/MMJ93Wz.png",
 }
 
+const box = document.createElement('div');
+box.id = 'draggable-box';
+const boxtext = document.createElement('p');
+boxtext.innerHTML = '';
+// Possible options: Pissed off with, Disappointed with, Dissatisfied with, Satisfied with, Pleased with, Enthusiastic about, Ecstatic about
+// Style the box
+Object.assign(box.style, {
+	width: '400px',
+	height: '200px',
+	backgroundColor: '#eee',
+	color: 'black',
+	textAlign: 'left',
+	lineHeight: '20px',
+	position: 'absolute',
+	top: '10%',
+	left: '37%',
+	cursor: 'move',
+	zIndex: '1000',
+	borderRadius: '5px',
+	boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+	padding: '10px',
+});
+
+// Append the box to the body
+document.body.appendChild(box);
+
+// Make the box draggable
+let isDragging = false;
+let offsetX = 0, offsetY = 0;
+
+box.addEventListener('mousedown', (e) => {
+	isDragging = true;
+	offsetX = e.clientX - box.offsetLeft;
+	offsetY = e.clientY - box.offsetTop;
+	box.style.transition = 'none'; // Disable transition for smooth dragging
+});
+
+document.addEventListener('mousemove', (e) => {
+	if (isDragging) {
+		box.style.left = `${e.clientX - offsetX}px`;
+		box.style.top = `${e.clientY - offsetY}px`;
+	}
+});
+
+document.addEventListener('mouseup', () => {
+	isDragging = false;
+	box.style.transition = 'all 0.1s ease'; // Reapply transition for smoother drop
+});
+box.appendChild(boxtext)
+
 movement_candidate = "Movement";
 movement_running_mate = "Vance";
-movement_candidate_url = image_dict["vance"];
-movement_running_mate_url = image_dict["the movement"];
+movement_candidate_url = image_dict["the movement"];
+movement_running_mate_url = image_dict["vance"];
 
 campaignTrail_temp.candidate_last_name = 'The Regime';
 campaignTrail_temp.running_mate_last_name = ' ';
@@ -168,8 +218,8 @@ technocapitalist_dict = {
 	"rhode island": 2,
 	"connecticut": 2,
 	"new jersey": 1,
-	"florida": 1,
-	"texas": 1,
+	"florida": 0.5,
+	"texas": 0.5,
 	"oregon": 1,
 	"washington": 1,
 }
@@ -182,33 +232,33 @@ darwinist_dict = {
 	"arizona": 1,
 	"utah": 1,
 	"wyoming": 1,
-	"new mexico": 1,
-	"colorado": 1,
+	"new mexico": 1.5,
+	"colorado": 1.5,
 	"nebraska": 1,
 	"nebraska-1": 1,
 	"nebraska-2": 1,
 	"nebraska-3": 1,
 	"south dakota": 1,
 	"north dakota": 1,
-	"washington": 0.5,
-	"oregon": 0.5,
+	"washington": 1,
+	"oregon": 1,
 	"kansas": 0.5,
 	"iowa": 0.5,
-	"minnesota": 0.5,
+	"minnesota": 1,
 	"florida": 0.5,
-	"maine-1": 1,
-	"maine-2": 1,
-	"maine-3": 1,
-	"maine": 1,
-	"vermont": 1,
-	"new hampshire": 1,
+	"maine-1": 2,
+	"maine-2": 2,
+	"maine-3": 2,
+	"maine": 2,
+	"vermont": 2,
+	"new hampshire": 2,
 }
 
 populist_dict = {
-	"minnesota": 0.5,
+	"minnesota": 1,
 	"iowa": 0.5,
 	"wisconsin": 1,
-	"illinois": 1,
+	"illinois": 1.5,
 	"indiana": 1,
 	"michigan": 1,
 	"kentucky": 0.5,
@@ -221,9 +271,9 @@ populist_dict = {
 
 function geo_calc(num,mult) {
 	if (num >= 0) {
-		return 1+mult*0.06*(1-Math.pow(0.8, num))/0.2;
+		return 1+mult*0.06*(1-Math.pow(0.9, num))/0.1;
 	} else {
-		return 1-mult*0.06*(1-Math.pow(1.2, -num))/-0.2;
+		return 1-mult*0.06*(1-Math.pow(1.1, -num))/-0.1;
 	}
 }
 
@@ -483,6 +533,37 @@ function adjust_support(num) {
 	}
 }
 
+function translate(num) {
+	if (num > 2.5) {
+		return("ecstatic about");
+	} else if (num > 1.5) {
+		return("enthusiastic about");
+	} else if (num > 0.5) {
+		return("pleased with");
+	} else if (num > -0.5) {
+		return("satisfied with");
+	} else if (num > -1.5) {
+		return("dissatisfied with");
+	} else if (num > -2.5) {
+		return("disappointed with");
+	} else {
+		return("pissed off with");
+	}
+}
+
+function dynamic_text_box() {
+	let christian_temp = translate(christian - expectation);
+	let technocapitalist_temp = translate(technocapitalist - expectation);
+	let populist_temp = translate(populist - expectation);
+	let darwinist_temp = translate(darwinist - expectation);
+	let christian_temp2 = add_sign((christian - expectation).toFixed(2));
+	let technocapitalist_temp2 = add_sign((technocapitalist - expectation).toFixed(2));
+	let populist_temp2 = add_sign((populist - expectation).toFixed(2));
+	let darwinist_temp2 = add_sign((darwinist - expectation).toFixed(2));
+	boxtext.innerHTML = `<strong>State of the New Right Coalition:</strong><br><br>Your Christians are ${christian_temp} your platform. (${christian_temp2})<br><br>Your Populists are ${populist_temp} your platform. (${populist_temp2})<br><br>Your Technocapitalists are ${technocapitalist_temp} your platform. (${technocapitalist_temp2})<br><br>Your Darwinists are ${darwinist_temp} your platform. (${darwinist_temp2})`;
+}
+
+expectation = 0;
 populist = 0;
 christian = 0;
 technocapitalist = 0;
@@ -525,6 +606,10 @@ cyoAdventure = function (a) {
 		polarize("Nationalism", -0.01, 0);
 	}
 	
+	if (e.question_number+1 >= 2 && 21 >= e.question_number+1) {
+		expectation += 0.15;
+		console.log(expectation);
+	}
 	if (e.question_number+2 == 10) {
 		campaignTrail_temp.candidate_last_name = "The";
 		campaignTrail_temp.running_mate_last_name = "Movement";
@@ -630,6 +715,9 @@ cyoAdventure = function (a) {
 	}
 	if (ans == 80003) {
 		christian += 2;
+	}
+	if (ans == 80004) {
+		christian -= 2;
 	}
 	if (ans == 90002) {
 		technocapitalist += 1;
@@ -824,6 +912,7 @@ cyoAdventure = function (a) {
 		base_turnout();
 	}
 	turnout_feedback();
+	dynamic_text_box();
 	
 	console.log("QUESTION "+(e.question_number+2)+":");
 	console.log("Populism: "+populist+" ("+(add_sign(populist-old_populist))+")");
@@ -857,7 +946,7 @@ campaignTrail_temp.questions_json = [
         "pk": "question_3",
         "fields": {
             "priority": 0,
-            "description": "The year is 2032. You finish a speech at the Republican National Convention, center of the Movement Resistance. The stadium is packed with energetic and enthusiastic members. As he is finishes his parting words, on what theme should he end this speech?",
+            "description": "The year is 2032. You finish a speech at the Republican National Convention, center of the Movement Resistance. The stadium is packed with energetic and enthusiastic members. As you finish your parting words, on what theme should you end this speech?",
             "likelihood": 1
         }
     },
@@ -911,7 +1000,7 @@ campaignTrail_temp.questions_json = [
         "pk": "question_9",
         "fields": {
             "priority": 0,
-            "description": "Another issue that has returned to the forefront is education, after you and Trump abolished the Department of Education, The left has been screeching that you’re looking to destroy the education system. Meanwhile, you hear more cries from the conservative base to tackle free speech issues, while others want to focus on the problem of anti-semitism. What are your plans for education reform?",
+            "description": "Another issue that has returned to the forefront is education. After you and Trump abolished the Department of Education, the left has been screeching that you’re looking to destroy the education system. Meanwhile, you hear more cries from the conservative base to tackle free speech issues, while others want to focus on the problem of anti-semitism. What are your plans for education reform?",
             "likelihood": 1
         }
     },
@@ -1491,6 +1580,14 @@ campaignTrail_temp.answers_json = [
         "fields": {
             "question": "question_8",
             "description": "It’s time we got in line with other countries on this issue. In Europe the median abortion ban takes place at 15 weeks. We’re one of the only countries that don’t do that. Starting now, I’m going to push a bill that will do the same in America, progressives be damned."
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 80004,
+        "fields": {
+            "question": "question_8",
+            "description": "You know, this issue really is killing us among the median voter. Let's distance ourselves from the pro-life movement, and ask the Christians to tone it down until this election is over."
         }
     },
 	{
@@ -2520,6 +2617,15 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "",
         "fields": {
+            "answer": 80004,
+            "candidate": 300,
+            "answer_feedback": "The Christians scowl, and pro-life groups across the nation protest. But you successfully manage to distance yourself from the pro-life movement, it's unclear if this will lead to many gains with the median voter, as abortion has faded from the front of mind for most people."
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "",
+        "fields": {
             "answer": 90001,
             "candidate": 300,
             "answer_feedback": "You are hitting all of the traditional campaign talking points."
@@ -2612,7 +2718,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 110003,
             "candidate": 300,
-            "answer_feedback": "More than 2/3rds of the states already had “stand your ground” laws on the books. And this decision wiped out the last of the “duty to retreat” jurisdictions. You earn praise from 2nd Amendment activists, though expect a dip in the polls."
+            "answer_feedback": "More than 2/3rds of the states already had “stand your ground” laws on the books, and this decision wiped out the last of the “duty to retreat” jurisdictions. You earn praise from 2nd Amendment activists, though expect a dip in the polls."
         }
     },
 	{
@@ -3610,6 +3716,16 @@ campaignTrail_temp.answer_score_global_json = [
             "global_multiplier": -0.02,
         }
     },
+		{
+        "model": "campaign_trail.answer_score_global",
+        "pk": "",
+        "fields": {
+            "answer": 80004,
+            "candidate": 300,
+            "affected_candidate": 300,
+            "global_multiplier": 0.008,
+        }
+    },
 	{
         "model": "campaign_trail.answer_score_global",
         "pk": "",
@@ -4600,6 +4716,16 @@ campaignTrail_temp.answer_score_issue_json = [
             "answer": 80003,
             "issue": "Moralism",
             "issue_score": -0.8,
+            "issue_importance": 2
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_issue",
+        "pk": "",
+        "fields": {
+            "answer": 80004,
+            "issue": "Moralism",
+            "issue_score": 0.0,
             "issue_importance": 2
         }
     },
@@ -7507,7 +7633,7 @@ campaignTrail_temp.state_issue_score_json = [
         "fields": {
             "state": 1130,
             "issue": "Nationalism",
-            "state_issue_score": 0.4,
+            "state_issue_score": 0.3,
             "weight": 1.5
         }
     },
@@ -9187,7 +9313,7 @@ campaignTrail_temp.state_issue_score_json = [
         "fields": {
             "state": 1130,
             "issue": "Economics",
-            "state_issue_score": 0.01,
+            "state_issue_score": -0.031,
             "weight": 1
         }
     },
