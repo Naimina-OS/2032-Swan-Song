@@ -274,7 +274,7 @@ function geo_calc(num,mult) {
 	if (num >= 0) {
 		return 1+mult*0.05*(1-Math.pow(0.9, num))/0.1;
 	} else {
-		return 1-mult*0.06*(1-Math.pow(1.2, -num))/-0.2;
+		return 1-mult*0.05*(1-Math.pow(1.2, -num))/-0.2;
 	}
 }
 
@@ -11436,10 +11436,10 @@ endingPicker = (out, totv, aa, quickstats) => {
 	if (CANY == 2) {
 		unlockAchievement("Party Switch");
 	}
-	if (christian >= 3 && technocapitalist >= 3 && darwinist >= 3 && populist >= 3) {
+	if (christian >= 3 && technocapitalist >= 3 && darwinist >= 3 && populist >= 3 && quickstats[0] >= 270) {
 		unlockAchievement("The New Right Rises");
 	}
-	if (christian <= 3 && technocapitalist <= 3 && darwinist <= 3 && populist <= 3) {
+	if (christian <= 3 && technocapitalist <= 3 && darwinist <= 3 && populist <= 3 && quickstats[0] >= 270) {
 		unlockAchievement("Neocon");
 	}
 
