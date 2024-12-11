@@ -11501,9 +11501,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 	
 	faction_win = leading_faction(christian, populist, technocapitalist, darwinist);
 	
-	if (quickstats[0] >= 300 && difficulty == "hard") {
-		
-	} else if (faction_win == "christian+") {
+	if (faction_win == "christian+") {
 		add_slide(ending_image_dict["theocracy"],slide_dict["theocracy"], false, true);
 		unlockAchievement("God's Country");
 	} else if (faction_win == "populist+") {
