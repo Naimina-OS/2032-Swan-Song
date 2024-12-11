@@ -564,6 +564,15 @@ function dynamic_text_box() {
 	boxtext.innerHTML = `<strong>State of the New Right Coalition:</strong><br><br>Your Christians are ${christian_temp} your campaign. (${christian_temp2})<br><br>Your Populists are ${populist_temp} your campaign. (${populist_temp2})<br><br>Your Technocapitalists are ${technocapitalist_temp} your campaign. (${technocapitalist_temp2})<br><br>Your Darwinists are ${darwinist_temp} your campaign. (${darwinist_temp2})`;
 }
 
+
+highlight_list = [];
+function add_highlight() {
+	for (let n = 0; n<campaignTrail_temp.answers_json.length; n++) {
+		if (highlight_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+			campaignTrail_temp.answers_json[n].fields.description = `<span style="background: yellow;">`+campaignTrail_temp.answers_json[n].fields.description+`</span>`;
+		}
+}
+
 expectation = 0;
 populist = 0;
 christian = 0;
@@ -598,13 +607,13 @@ cyoAdventure = function (a) {
 		adjust_support(-0.0015)
 	}
 	
-	if (opinion_shift = "traditionalist") {
+	if (opinion_shift == "traditionalist") {
 		polarize("Moralism", -0.01, 0);
-	} else if (opinion_shift = "futurist") {
+	} else if (opinion_shift == "futurist") {
 		polarize("Economic", -0.01, 0);
-	} else if (opinion_shift = "libertarian") {
+	} else if (opinion_shift == "libertarian") {
 		polarize("Bureaucracy", -0.01, 0);
-	} else if (opinion_shift = "nationalist") {
+	} else if (opinion_shift == "nationalist") {
 		polarize("Nationalism", -0.01, 0);
 	}
 	
@@ -668,19 +677,23 @@ cyoAdventure = function (a) {
 	}
 	if (ans == 20001) {
 		christian += 1;
-		console.log("Remember to put a tooltip function here!");
+		highlight list = [30004,80003,100001,130003,160002,190003,210001];
+		add_highlight()
 	}
 	if (ans == 20002) {
 		darwinist += 1;
-		console.log("Remember to put a tooltip function here!");
+		highlight list = [30003,50001,90004,100003,110004,120002,130002,160004,180001];
+		add_highlight()
 	}
 	if (ans == 20003) {
 		technocapitalist += 1;
-		console.log("Remember to put a tooltip function here!");
+		highlight list = [40003,50001,70001,90002,100002,120001,130001,160003,180003,210004];
+		add_highlight()
 	}
 	if (ans == 20004) {
 		populist += 1;
-		console.log("Remember to put a tooltip function here!");
+		highlight list = [40002,70002,90003,100004,120003,130003,160001,180004,210002];
+		add_highlight()
 	}
 	if (ans == 30003) {
 		darwinist += 1;
@@ -1396,1000 +1409,1000 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 10001,
         "fields": {
-            "question": "question_1",
-            "description": "We cannot concede among the periphery nor the imperial heartland. Spread our resources as evenly as we can. We have to make it."
+            "question": `question_1`,
+            "description": `We cannot concede among the periphery nor the imperial heartland. Spread our resources as evenly as we can. We have to make it.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 10002,
         "fields": {
-            "question": "question_1",
-            "description": "America is a lost cause. Concentrate our resources into the outer colonies. We’ll regroup on the European continent and make our next moves from there. We might have lost the battle, but we’ll still keep fighting for the inevitable war."
+            "question": `question_1`,
+            "description": `America is a lost cause. Concentrate our resources into the outer colonies. We’ll regroup on the European continent and make our next moves from there. We might have lost the battle, but we’ll still keep fighting for the inevitable war.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 10003,
         "fields": {
-            "question": "question_1",
-            "description": "Concentrate all our resources into America. America is the lynchpin which the entire Regime must hang over. It’s all or nothing. To hell with Britain, to hell with Canada, if we lose America, we lose everything."
+            "question": `question_1`,
+            "description": `Concentrate all our resources into America. America is the lynchpin which the entire Regime must hang over. It’s all or nothing. To hell with Britain, to hell with Canada, if we lose America, we lose everything.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 20001,
         "fields": {
-            "question": "question_2",
-            "description": "The Lord. I am a man of faith, and there are no better guides than his holy word, and the timeless wisdom imparted in the Judeo-Christian tradition."
+            "question": `question_2`,
+            "description": `The Lord. I am a man of faith, and there are no better guides than his holy word, and the timeless wisdom imparted in the Judeo-Christian tradition.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 20002,
         "fields": {
-            "question": "question_2",
-            "description": "My honor, and my own conscience. I am born free, and I die free. I am the master of my own destiny, and no one else."
+            "question": `question_2`,
+            "description": `My honor, and my own conscience. I am born free, and I die free. I am the master of my own destiny, and no one else.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 20003,
         "fields": {
-            "question": "question_2",
-            "description": "The future. What we do today will impact forever. I remember what my mentors, Thiel and Yarvin taught me. I have to look at the bigger picture."
+            "question": `question_2`,
+            "description": `The future. What we do today will impact forever. I remember what my mentors, Thiel and Yarvin taught me. I have to look at the bigger picture.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 20004,
         "fields": {
-            "question": "question_2",
-            "description": "My people back in the Midwest. There are millions of people who have put their trust in me. I am but a public servant, and my duty is to make sure their needs are met."
+            "question": `question_2`,
+            "description": `My people back in the Midwest. There are millions of people who have put their trust in me. I am but a public servant, and my duty is to make sure their needs are met.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 30001,
         "fields": {
-            "question": "question_3",
-            "description": "The economy. We’ve done so much in the past 4 years to get you lower taxes, better jobs, and cut out the waste from this bloated bureaucracy. The economy is practically exploding right now. If I am re-elected, I will keep this economy going for 4 more years!"
+            "question": `question_3`,
+            "description": `The economy. We’ve done so much in the past 4 years to get you lower taxes, better jobs, and cut out the waste from this bloated bureaucracy. The economy is practically exploding right now. If I am re-elected, I will keep this economy going for 4 more years!`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 30002,
         "fields": {
-            "question": "question_3",
-            "description": "We have brought back the American dream, and made it better than ever before. I’m going to repeat the words of one of the greatest men of our time. My mentor, and your previous president, Donald J. Trump… “America is the place where anything can happen…”"
+            "question": `question_3`,
+            "description": `We have brought back the American dream, and made it better than ever before. I’m going to repeat the words of one of the greatest men of our time. My mentor, and your previous president, Donald J. Trump… “America is the place where anything can happen…”`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 30003,
         "fields": {
-            "question": "question_3",
-            "description": "We need to attack big government and big bureaucracy. The government should not be involved, and it will not be involved. If we can get a great throbbing majority in the House and Senate, we can begin the process of getting the government the hell out of our lives, and dismantling the Deep State once and for all!"
+            "question": `question_3`,
+            "description": `We need to attack big government and big bureaucracy. The government should not be involved, and it will not be involved. If we can get a great throbbing majority in the House and Senate, we can begin the process of getting the government the hell out of our lives, and dismantling the Deep State once and for all!`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 30004,
         "fields": {
-            "question": "question_3",
-            "description": "I would just like to end with a quote, from I think one of the greatest books ever written. Psalm 23:4 and 23:6, let’s bow in prayer... “Even though I walk through the valley of death, I will fear no evil, for you are with me; your rod and your staff, they comfort me. Surely goodness, love, and mercy shall follow me, all the days of my life, and I shall dwell in the house of the LORD forever.”"
+            "question": `question_3`,
+            "description": `I would just like to end with a quote, from I think one of the greatest books ever written. Psalm 23:4 and 23:6, let’s bow in prayer... “Even though I walk through the valley of death, I will fear no evil, for you are with me; your rod and your staff, they comfort me. Surely goodness, love, and mercy shall follow me, all the days of my life, and I shall dwell in the house of the LORD forever.”`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 40001,
         "fields": {
-            "question": "question_4",
-            "description": "The Great Uncoupling hit us like a car in traffic. But thanks to the leadership of myself, and my predecessor, our economy is stronger, wealthier, and more prosperous than any other country on Earth. These are trying times. But imagine how much worse it would be with the Democrats in power."
+            "question": `question_4`,
+            "description": `The Great Uncoupling hit us like a car in traffic. But thanks to the leadership of myself, and my predecessor, our economy is stronger, wealthier, and more prosperous than any other country on Earth. These are trying times. But imagine how much worse it would be with the Democrats in power.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 40002,
         "fields": {
-            "question": "question_4",
-            "description": "I think what's more important here is rising wages. We’ve done so much on this front. Companies have moved back abroad, and I plan on further putting further pressure on companies to make sure when you buy American, those proceeds go back to paying American wages, to American workers, at American companies."
+            "question": `question_4`,
+            "description": `I think what's more important here is rising wages. We’ve done so much on this front. Companies have moved back abroad, and I plan on further putting further pressure on companies to make sure when you buy American, those proceeds go back to paying American wages, to American workers, at American companies.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 40003,
         "fields": {
-            "question": "question_4",
-            "description": "I’ve talked to many economists, and they keep telling me the same thing. If the prices are to come down, the tariffs have to go. As much as I hate to do it, we have to open up our economy again and import foreign goods if we want to get the prices of groceries back down and make life better for the American citizen."
+            "question": `question_4`,
+            "description": `I’ve talked to many economists, and they keep telling me the same thing. If the prices are to come down, the tariffs have to go. As much as I hate to do it, we have to open up our economy again and import foreign goods if we want to get the prices of groceries back down and make life better for the American citizen.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 50001,
         "fields": {
-            "question": "question_5",
-            "description": "I hate to say it, but the only way through is with huge budget cuts. We’ve been spending beyond our means for years now, and the music has to stop somewhere. We’re not going to have any sacred cows, for the good of our country, we’ll have to take some sacrifices. That includes, unfortunately, parts of the Social Security and Medicare programs."
+            "question": `question_5`,
+            "description": `I hate to say it, but the only way through is with huge budget cuts. We’ve been spending beyond our means for years now, and the music has to stop somewhere. We’re not going to have any sacred cows, for the good of our country, we’ll have to take some sacrifices. That includes, unfortunately, parts of the Social Security and Medicare programs.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 50002,
         "fields": {
-            "question": "question_5",
-            "description": "There are trillions being wasted with inefficient government spending, and we’ve already cut out hundreds of billions with the Department of Government Efficiency, with no impact to quality of services. It’s not a spending problem, it’s a waste problem. I’ll keep cutting out the fat, and get our country back on track to a balanced budget."
+            "question": `question_5`,
+            "description": `There are trillions being wasted with inefficient government spending, and we’ve already cut out hundreds of billions with the Department of Government Efficiency, with no impact to quality of services. It’s not a spending problem, it’s a waste problem. I’ll keep cutting out the fat, and get our country back on track to a balanced budget.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 50003,
         "fields": {
-            "question": "question_5",
-            "description": "The problem is not debt, it’s debt to GDP. And that’s how we’re going to get out of this. If we can keep growing the economy faster than the debt can, then we can grow our way out of this mess. I’m going to axe the tax, so American workers can get bigger paychecks and get this economy moving."
+            "question": `question_5`,
+            "description": `The problem is not debt, it’s debt to GDP. And that’s how we’re going to get out of this. If we can keep growing the economy faster than the debt can, then we can grow our way out of this mess. I’m going to axe the tax, so American workers can get bigger paychecks and get this economy moving.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 60001,
         "fields": {
-            "question": "question_6a",
-            "description": "We congratulate Chancellor Merz for his hard-won re-election, and wish him luck as we chart a prosperous future for the partnership between our two nations."
+            "question": `question_6a`,
+            "description": `We congratulate Chancellor Merz for his hard-won re-election, and wish him luck as we chart a prosperous future for the partnership between our two nations.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 60002,
         "fields": {
-            "question": "question_6b",
-            "description": "We congratulate Chancellor Merz for his hard-won re-election, and wish him luck as we chart a prosperous future for the partnership between our two nations."
+            "question": `question_6b`,
+            "description": `We congratulate Chancellor Merz for his hard-won re-election, and wish him luck as we chart a prosperous future for the partnership between our two nations.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 60003,
         "fields": {
-            "question": "question_6c",
-            "description": "What a surprise! We congratulate Chancellor Alice Weidel for her hard-won chancellorship and wish her luck as we chart a prosperous future for the partnership between our two nations."
+            "question": `question_6c`,
+            "description": `What a surprise! We congratulate Chancellor Alice Weidel for her hard-won chancellorship and wish her luck as we chart a prosperous future for the partnership between our two nations.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 70001,
         "fields": {
-            "question": "question_7",
-            "description": "Fine, let's renegotiate. I've made more than a few deals already, and both our economies have been taking the piss as of late. America’s experiencing climbing grocery prices, and China is still trying to print their way out of an economic recession. Let's meet up somewhere and hash out our differences, okay? Maybe we can get our damn economies moving again."
+            "question": `question_7`,
+            "description": `Fine, let's renegotiate. I've made more than a few deals already, and both our economies have been taking the piss as of late. America’s experiencing climbing grocery prices, and China is still trying to print their way out of an economic recession. Let's meet up somewhere and hash out our differences, okay? Maybe we can get our damn economies moving again.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 70002,
         "fields": {
-            "question": "question_7",
-            "description": "Hell no, Jose. America has been the stronger economy by far for the past 8 years. If he wants to play this game, think they can go toe to toe with us, then they have another thing coming. Throw the goddamn book at them. 25% tariffs, 50% tariffs on everything they make. They want to choke us, let’s choke them back."
+            "question": `question_7`,
+            "description": `Hell no, Jose. America has been the stronger economy by far for the past 8 years. If he wants to play this game, think they can go toe to toe with us, then they have another thing coming. Throw the goddamn book at them. 25% tariffs, 50% tariffs on everything they make. They want to choke us, let’s choke them back.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 80001,
         "fields": {
-            "question": "question_8",
-            "description": "My position is the same as it always was. I have not passed any federal laws on abortion, and I will continue to not pass any federal laws on abortion. This is a states issue, though I am personally pro-life."
+            "question": `question_8`,
+            "description": `My position is the same as it always was. I have not passed any federal laws on abortion, and I will continue to not pass any federal laws on abortion. This is a states issue, though I am personally pro-life.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 80002,
         "fields": {
-            "question": "question_8",
-            "description": "My position is the same as it always was. I have not passed any federal laws on abortion, and I will continue to not pass any federal laws on abortion. This is a states issue, though I am personally pro-life… Though that said, it wouldn’t hurt for me to campaign for some pro-life referendums at the local level."
+            "question": `question_8`,
+            "description": `My position is the same as it always was. I have not passed any federal laws on abortion, and I will continue to not pass any federal laws on abortion. This is a states issue, though I am personally pro-life… Though that said, it wouldn’t hurt for me to campaign for some pro-life referendums at the local level.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 80003,
         "fields": {
-            "question": "question_8",
-            "description": "It’s time we got in line with other countries on this issue. In Europe the median abortion ban takes place at 15 weeks. We’re one of the only countries that don’t do that. Starting now, I’m going to push a bill that will do the same in America, progressives be damned."
+            "question": `question_8`,
+            "description": `It’s time we got in line with other countries on this issue. In Europe the median abortion ban takes place at 15 weeks. We’re one of the only countries that don’t do that. Starting now, I’m going to push a bill that will do the same in America, progressives be damned.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 80004,
         "fields": {
-            "question": "question_8",
-            "description": "You know, this issue really is killing us among the median voter. Let's distance ourselves from the pro-life movement, and ask the Christians to tone it down until this election is over."
+            "question": `question_8`,
+            "description": `You know, this issue really is killing us among the median voter. Let's distance ourselves from the pro-life movement, and ask the Christians to tone it down until this election is over.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 90001,
         "fields": {
-            "question": "question_9",
-            "description": "My policies are clear, I am proudly pro-school choice, and I believe in the power of the free market. My administration has stood firm on the subject of school choice, for both the parents and the states, and we will continue doing so."
+            "question": `question_9`,
+            "description": `My policies are clear, I am proudly pro-school choice, and I believe in the power of the free market. My administration has stood firm on the subject of school choice, for both the parents and the states, and we will continue doing so.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 90002,
         "fields": {
-            "question": "question_9",
-            "description": "We have to break the liberal university system. I see no point in using an outdated, 19th century school system when you can learn more things than ever through the power of the Internet. American Academy was a good start, but get Musk and Thiel on the line. Let’s see if we can do better."
+            "question": `question_9`,
+            "description": `We have to break the liberal university system. I see no point in using an outdated, 19th century school system when you can learn more things than ever through the power of the Internet. American Academy was a good start, but get Musk and Thiel on the line. Let’s see if we can do better.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 90003,
         "fields": {
-            "question": "question_9",
-            "description": "It’s a travesty that these university campuses continue to be bastions of Marxism and anti-semitism. Federal taxdollars shouldn’t be funding institutions that promote blatant hatred. Starting today, we’re going to cut federal funding for any university that promotes Marxism or takes money from the Qatari government."
+            "question": `question_9`,
+            "description": `It’s a travesty that these university campuses continue to be bastions of Marxism and anti-semitism. Federal taxdollars shouldn’t be funding institutions that promote blatant hatred. Starting today, we’re going to cut federal funding for any university that promotes Marxism or takes money from the Qatari government.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 90004,
         "fields": {
-            "question": "question_9",
-            "description": "It’s a travesty that these university campuses continue to be bastions of liberal censorship. There are no freedoms as important as the freedom of speech, and what was once a marketplace of ideas is now a hive of censorship. Starting today, we’re going to cut federal funding for any university that suppresses free speech, and fund competitors that don’t."
+            "question": `question_9`,
+            "description": `It’s a travesty that these university campuses continue to be bastions of liberal censorship. There are no freedoms as important as the freedom of speech, and what was once a marketplace of ideas is now a hive of censorship. Starting today, we’re going to cut federal funding for any university that suppresses free speech, and fund competitors that don’t.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 100001,
         "fields": {
-            "question": "question_10",
-            "description": "We need a return to traditional values. God, family, glory… Those timeless things that our society has now lost. The youth yearn for a return of meaning. Let’s begin promoting soul, tradition, and culture."
+            "question": `question_10`,
+            "description": `We need a return to traditional values. God, family, glory… Those timeless things that our society has now lost. The youth yearn for a return of meaning. Let’s begin promoting soul, tradition, and culture.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 100002,
         "fields": {
-            "question": "question_10",
-            "description": "Our destiny lies not in our past, but in our future… The stars, they call out for us. Mankind was not meant to stay in our cradle forever, our destiny is in these stars. Let us dream of a glorious future that awaits us."
+            "question": `question_10`,
+            "description": `Our destiny lies not in our past, but in our future… The stars, they call out for us. Mankind was not meant to stay in our cradle forever, our destiny is in these stars. Let us dream of a glorious future that awaits us.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 100003,
         "fields": {
-            "question": "question_10",
-            "description": "We need a backlash against bureaucracy. Our nation was built by a simple idea, that man was born free of frontiers and pioneers. Spin up the new media machine, we have to begin building a durable resistance against recreating bureaucracy."
+            "question": `question_10`,
+            "description": `We need a backlash against bureaucracy. Our nation was built by a simple idea, that man was born free of frontiers and pioneers. Spin up the new media machine, we have to begin building a durable resistance against recreating bureaucracy.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 100004,
         "fields": {
-            "question": "question_10",
-            "description": "For too long have we been shamed for having national pride. America was founded on the idea that all men were created equal, and throughout history, not one nation has done more to advance the ideas of liberty. America is the greatest country on Earth, and we should continue to say it, proudly and without reservation."
+            "question": `question_10`,
+            "description": `For too long have we been shamed for having national pride. America was founded on the idea that all men were created equal, and throughout history, not one nation has done more to advance the ideas of liberty. America is the greatest country on Earth, and we should continue to say it, proudly and without reservation.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 110001,
         "fields": {
-            "question": "question_11",
-            "description": "The left likes to paint me as some kind of gun-nut, but really, I’m just not a gun-grabber like they are. I have kids at home, so I’m all for common sense regulations. Don’t let the left paint me as more radical than I actually am."
+            "question": `question_11`,
+            "description": `The left likes to paint me as some kind of gun-nut, but really, I’m just not a gun-grabber like they are. I have kids at home, so I’m all for common sense regulations. Don’t let the left paint me as more radical than I actually am.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 110002,
         "fields": {
-            "question": "question_11",
-            "description": "To be honest, I don’t think I need to comment. The Supreme Court is doing an excellent job enshrining gun rights in America. More and more states pass Constitutional Carry every day, and I’m satisfied to just let nature play itself out."
+            "question": `question_11`,
+            "description": `To be honest, I don’t think I need to comment. The Supreme Court is doing an excellent job enshrining gun rights in America. More and more states pass Constitutional Carry every day, and I’m satisfied to just let nature play itself out.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 110003,
         "fields": {
-            "question": "question_11",
-            "description": "The Supreme Court is doing an excellent job enshrining gun rights in America. More and more states pass Constitutional Carry every day, but we need to go further. I’m going to pass a national stand your ground act."
+            "question": `question_11`,
+            "description": `The Supreme Court is doing an excellent job enshrining gun rights in America. More and more states pass Constitutional Carry every day, but we need to go further. I’m going to pass a national stand your ground act.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 110004,
         "fields": {
-            "question": "question_11",
-            "description": "I’m going to enforce the 2nd Amendment, as written in the Constitution. Nothing more, nothing less. We’ve done good work but it’s not nearly far enough. It’s time for us to finally restore gun rights to the way the Founding Fathers intended, all the way back in 1776."
+            "question": `question_11`,
+            "description": `I’m going to enforce the 2nd Amendment, as written in the Constitution. Nothing more, nothing less. We’ve done good work but it’s not nearly far enough. It’s time for us to finally restore gun rights to the way the Founding Fathers intended, all the way back in 1776.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 120001,
         "fields": {
-            "question": "question_12",
-            "description": "Social media is on our side. I’m sure Musk knows what he’s doing. Ask him to call up Zuckerberg and urge him to do the right thing as well. This isn’t 2016, we’re not powerless. We have institutions of our own, let’s fight back against this."
+            "question": `question_12`,
+            "description": `Social media is on our side. I’m sure Musk knows what he’s doing. Ask him to call up Zuckerberg and urge him to do the right thing as well. This isn’t 2016, we’re not powerless. We have institutions of our own, let’s fight back against this.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 120002,
         "fields": {
-            "question": "question_12",
-            "description": "Tell my supporters to head to Alt Tech. Gab, Parler, Rumble, all of those wonderful sites. Go to Truth Social and communicate via Signal. It’s time for a change of the guard, out with the old and in with the new."
+            "question": `question_12`,
+            "description": `Tell my supporters to head to Alt Tech. Gab, Parler, Rumble, all of those wonderful sites. Go to Truth Social and communicate via Signal. It’s time for a change of the guard, out with the old and in with the new.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 120003,
         "fields": {
-            "question": "question_12",
-            "description": "I’ve had enough of this. Big Tech and intelligence agencies being allowed to control the discourse on the public square. I’m striking Section 230 off the books and I’m going to start handing out penalties to social media platforms that recklessly censor freedom of opinion."
+            "question": `question_12`,
+            "description": `I’ve had enough of this. Big Tech and intelligence agencies being allowed to control the discourse on the public square. I’m striking Section 230 off the books and I’m going to start handing out penalties to social media platforms that recklessly censor freedom of opinion.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 120004,
         "fields": {
-            "question": "question_12",
-            "description": "Mobilize the grassroots. Get in contact with every influencer we have and start raising hell. They might have the power, but we have the people. They can’t keep doing this if we put this much public pressure on them."
+            "question": `question_12`,
+            "description": `Mobilize the grassroots. Get in contact with every influencer we have and start raising hell. They might have the power, but we have the people. They can’t keep doing this if we put this much public pressure on them.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 130001,
         "fields": {
-            "question": "question_13",
-            "description": "They want to fight? Fine. Fight fire with fire. Go make a call to Thiel. He has contacts in Russia. If they want to swarm us with Chinese bots, it’s only fair we swarm them with bots of our own."
+            "question": `question_13`,
+            "description": `They want to fight? Fine. Fight fire with fire. Go make a call to Thiel. He has contacts in Russia. If they want to swarm us with Chinese bots, it’s only fair we swarm them with bots of our own.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 130002,
         "fields": {
-            "question": "question_13",
-            "description": "Scorched earth. Flood all these social media sites with spambots, burn them down. And retreat to more localized message boards. I was thinking the age of social media was coming to an end. Let’s accelerate the process."
+            "question": `question_13`,
+            "description": `Scorched earth. Flood all these social media sites with spambots, burn them down. And retreat to more localized message boards. I was thinking the age of social media was coming to an end. Let’s accelerate the process.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 130003,
         "fields": {
-            "question": "question_13",
-            "description": "We really should crack down on the spambot problem. It’s polluting the web and destroying public discourse. I’m going to push a bill through Congress, requiring digital identification, and real age verification for social media platforms. I’m going to make the internet safe again."
+            "question": `question_13`,
+            "description": `We really should crack down on the spambot problem. It’s polluting the web and destroying public discourse. I’m going to push a bill through Congress, requiring digital identification, and real age verification for social media platforms. I’m going to make the internet safe again.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 130004,
         "fields": {
-            "question": "question_13",
-            "description": "You know, sometimes things are just meant to be left alone. Don’t touch this with a 10-foot pole."
+            "question": `question_13`,
+            "description": `You know, sometimes things are just meant to be left alone. Don’t touch this with a 10-foot pole.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 140001,
         "fields": {
-            "question": "question_14",
-            "description": "Godspeed, Elon."
+            "question": `question_14`,
+            "description": `Godspeed, Elon.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 150001,
         "fields": {
-            "question": "question_15",
-            "description": "The fact. The very fact that Gavin Newsom is the best person they can run against me should speak volumes about how low the Democrats have now fallen. The man who has no ideology but his own power. That’s who they decided was the best candidate? I have no words, I really do have no words."
+            "question": `question_15`,
+            "description": `The fact. The very fact that Gavin Newsom is the best person they can run against me should speak volumes about how low the Democrats have now fallen. The man who has no ideology but his own power. That’s who they decided was the best candidate? I have no words, I really do have no words.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 150002,
         "fields": {
-            "question": "question_15",
-            "description": "If you want to know what a Gavin Newsom administration would look like, look no further than his home state of California. I hate to admit it, as a native Ohioan myself, but California was once one of the most beautiful states in the union, back in the days of Ronald Reagan. It happened there, and it will happen here as well, if you let them."
+            "question": `question_15`,
+            "description": `If you want to know what a Gavin Newsom administration would look like, look no further than his home state of California. I hate to admit it, as a native Ohioan myself, but California was once one of the most beautiful states in the union, back in the days of Ronald Reagan. It happened there, and it will happen here as well, if you let them.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 160001,
         "fields": {
-            "question": "question_16",
-            "description": "I am proud to announce my new running mate Josh Hawley, a great man, and a great patriot from the state of Missouri. Hawley has spent much time pushing for an America First agenda, fighting both big government, and big corporations alike. And with him, we’re going to drain the elites out of Washington."
+            "question": `question_16`,
+            "description": `I am proud to announce my new running mate Josh Hawley, a great man, and a great patriot from the state of Missouri. Hawley has spent much time pushing for an America First agenda, fighting both big government, and big corporations alike. And with him, we’re going to drain the elites out of Washington.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 160002,
         "fields": {
-            "question": "question_16",
-            "description": "I am proud to announce my new running mate Sarah Huckabee Sanders, a great woman, and a great Christian from the state of Arkansas. Sander has long been a vocal opponent of the attempts to erase Christian values from our country, and a devoted woman of God. And with her, we’re going to restore the values America was founded on."
+            "question": `question_16`,
+            "description": `I am proud to announce my new running mate Sarah Huckabee Sanders, a great woman, and a great Christian from the state of Arkansas. Sander has long been a vocal opponent of the attempts to erase Christian values from our country, and a devoted woman of God. And with her, we’re going to restore the values America was founded on.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 160003,
         "fields": {
-            "question": "question_16",
-            "description": "I am proud to announce my new running mate Vivek Ramaswamy, a great man, and a great forward thinker from the state of Texas. Vivek has done wonders to attract business and capital into his great state. And with him, we’re going to make sure the economy is running at 100% capacity."
+            "question": `question_16`,
+            "description": `I am proud to announce my new running mate Vivek Ramaswamy, a great man, and a great forward thinker from the state of Texas. Vivek has done wonders to attract business and capital into his great state. And with him, we’re going to make sure the economy is running at 100% capacity.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 160004,
         "fields": {
-            "question": "question_16",
-            "description": "I am proud to announce my new running mate Mike Lee, a great man, and a strict constitutionalist from the state of Utah. Lee has done everything to oppose increases in federal power and is dedicated to gutting our bloated bureaucracy. And with him, we’re going to get the government the hell of your lives."
+            "question": `question_16`,
+            "description": `I am proud to announce my new running mate Mike Lee, a great man, and a strict constitutionalist from the state of Utah. Lee has done everything to oppose increases in federal power and is dedicated to gutting our bloated bureaucracy. And with him, we’re going to get the government the hell of your lives.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 170011,
         "fields": {
-            "question": "question_17a",
-            "description": "We’ve got him cornered. He knows we have the leverage, and he doesn’t, it’s time to play hardball. Quotas to buy American steel, produce, everything to balance the trade deficit, and favorable terms on Chinese exports. We need to renegotiate this, in America’s favor."
+            "question": `question_17a`,
+            "description": `We’ve got him cornered. He knows we have the leverage, and he doesn’t, it’s time to play hardball. Quotas to buy American steel, produce, everything to balance the trade deficit, and favorable terms on Chinese exports. We need to renegotiate this, in America’s favor.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 170012,
         "fields": {
-            "question": "question_17a",
-            "description": "Let’s take this opportunity to convince companies to reshore and build up manufacturing back in America. Loosen up a bit on Chinese trade, but invest some more into automation to drive down labor costs, it’s time to make America a manufacturing powerhouse."
+            "question": `question_17a`,
+            "description": `Let’s take this opportunity to convince companies to reshore and build up manufacturing back in America. Loosen up a bit on Chinese trade, but invest some more into automation to drive down labor costs, it’s time to make America a manufacturing powerhouse.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 170013,
         "fields": {
-            "question": "question_17a",
-            "description": "He wants to surrender? Well too bad. You know what they always say, the only good commie is a dead commie. Even more pressure against them, keep kicking them while they’re down. I won’t stop until the People’s Republic is dead and buried with the rest of America’s adversaries."
+            "question": `question_17a`,
+            "description": `He wants to surrender? Well too bad. You know what they always say, the only good commie is a dead commie. Even more pressure against them, keep kicking them while they’re down. I won’t stop until the People’s Republic is dead and buried with the rest of America’s adversaries.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 170014,
         "fields": {
-            "question": "question_17a",
-            "description": "Look, I want concessions from China, but we can’t exactly humiliate them like this. Here, lift the restrictions halfway as a gesture of goodwill, and then negotiate for a better deal from there, but not too harsh. We need the economy to improve by election day."
+            "question": `question_17a`,
+            "description": `Look, I want concessions from China, but we can’t exactly humiliate them like this. Here, lift the restrictions halfway as a gesture of goodwill, and then negotiate for a better deal from there, but not too harsh. We need the economy to improve by election day.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 170021,
         "fields": {
-            "question": "question_17b",
-            "description": "Fine. If this is what it takes to get the economy back up and running, then sure. Sign the damn deal, I have a country to run."
+            "question": `question_17b`,
+            "description": `Fine. If this is what it takes to get the economy back up and running, then sure. Sign the damn deal, I have a country to run.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 170022,
         "fields": {
-            "question": "question_17b",
-            "description": "Fine, but if you want to keep these tariffs, then I’ll need a little something from you. I know you have capital controls over your economy. I know a lot of rich people who would love to be investing right now, but real free trade involves the free flow of capital. You want a deal like this, you remove those capital controls for American investors."
+            "question": `question_17b`,
+            "description": `Fine, but if you want to keep these tariffs, then I’ll need a little something from you. I know you have capital controls over your economy. I know a lot of rich people who would love to be investing right now, but real free trade involves the free flow of capital. You want a deal like this, you remove those capital controls for American investors.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 170023,
         "fields": {
-            "question": "question_17b",
-            "description": "Fine, tit for tat. You pull on some of this, we push on some of this. We want you to purchase this much in American exports. If you want to keep your import tariffs, we get to keep our balanced trade deficit."
+            "question": `question_17b`,
+            "description": `Fine, tit for tat. You pull on some of this, we push on some of this. We want you to purchase this much in American exports. If you want to keep your import tariffs, we get to keep our balanced trade deficit.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 170024,
         "fields": {
-            "question": "question_17b",
-            "description": "Oh no you don’t. You’re not pulling one over me. Fair is fair, you either agree to have a trade agreement with America on even terms, or not at all. Threaten to pull out of the negotiations unless he backs down on this."
+            "question": `question_17b`,
+            "description": `Oh no you don’t. You’re not pulling one over me. Fair is fair, you either agree to have a trade agreement with America on even terms, or not at all. Threaten to pull out of the negotiations unless he backs down on this.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 180001,
         "fields": {
-            "question": "question_18",
-            "description": "I’ve had a lot of people come up to me talking about regulation. And they’re right, regulation is killing our economy, so starting today, I’m going to take them down with a bloody hacksaw. Especially stuff like raw milk, let the American people make their own choices about their bodies!"
+            "question": `question_18`,
+            "description": `I’ve had a lot of people come up to me talking about regulation. And they’re right, regulation is killing our economy, so starting today, I’m going to take them down with a bloody hacksaw. Especially stuff like raw milk, let the American people make their own choices about their bodies!`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 180002,
         "fields": {
-            "question": "question_18",
-            "description": "I think in this time of need, we need some serious stimulus. Start printing money, lower the interest rates, raise spending, get a tax cut to lower and middle-class Americans. The American people need this money, and they need it now!"
+            "question": `question_18`,
+            "description": `I think in this time of need, we need some serious stimulus. Start printing money, lower the interest rates, raise spending, get a tax cut to lower and middle-class Americans. The American people need this money, and they need it now!`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 180003,
         "fields": {
-            "question": "question_18",
-            "description": "We need to cut the corporate tax. Ex-President Trump always wanted to cut it to a wonderful 15%. He wasn’t able to do it, but I’ll do it now. Get Congress to cooperate, Thiel, Musk, Nune, hop to it. I don’t care what it takes. Just get the economy moving."
+            "question": `question_18`,
+            "description": `We need to cut the corporate tax. Ex-President Trump always wanted to cut it to a wonderful 15%. He wasn’t able to do it, but I’ll do it now. Get Congress to cooperate, Thiel, Musk, Nune, hop to it. I don’t care what it takes. Just get the economy moving.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 180004,
         "fields": {
-            "question": "question_18",
-            "description": "The problem is our great factories, our great producers, they’re just not ready yet, and it’ll take a while before they can catch up. We’ll subsidize them in exchange for them cutting their prices. Get those prices down."
+            "question": `question_18`,
+            "description": `The problem is our great factories, our great producers, they’re just not ready yet, and it’ll take a while before they can catch up. We’ll subsidize them in exchange for them cutting their prices. Get those prices down.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 190001,
         "fields": {
-            "question": "question_19",
-            "description": "Look, gay marriage is a bombshell and we know it. America might have shifted right on things, but we’re not ready for that yet. And Thiel wouldn’t be happy either. I’ll try to placate them with something else. I’ll start pushing for a bill to unban school prayers, that should get them off my back for a bit."
+            "question": `question_19`,
+            "description": `Look, gay marriage is a bombshell and we know it. America might have shifted right on things, but we’re not ready for that yet. And Thiel wouldn’t be happy either. I’ll try to placate them with something else. I’ll start pushing for a bill to unban school prayers, that should get them off my back for a bit.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 190002,
         "fields": {
-            "question": "question_19",
-            "description": "I am a proud Republican patriot who will promote traditional conservative family values. I firmly believe nothing matters more to me than family. If elected, I will do everything in my power to promote support for families and communities of all types."
+            "question": `question_19`,
+            "description": `I am a proud Republican patriot who will promote traditional conservative family values. I firmly believe nothing matters more to me than family. If elected, I will do everything in my power to promote support for families and communities of all types.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 190003,
         "fields": {
-            "question": "question_19",
-            "description": "I am a Christian, a Bible believing Christian. My worldview and value system comes from the Bible, and yes, that includes the fact that I believe a traditional marriage is defined as one between a man and a woman. And if elected, I will take steps to ensure this definition is returned to the law of the land."
+            "question": `question_19`,
+            "description": `I am a Christian, a Bible believing Christian. My worldview and value system comes from the Bible, and yes, that includes the fact that I believe a traditional marriage is defined as one between a man and a woman. And if elected, I will take steps to ensure this definition is returned to the law of the land.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 190004,
         "fields": {
-            "question": "question_19",
-            "description": "Look, I’m not going to bend over backwards to appease some people who are likely to vote for me anyway. I’m going to come out and say I have no plans on touching same-sex marriage. I’m the family values candidate or all families, take it or leave it."
+            "question": `question_19`,
+            "description": `Look, I’m not going to bend over backwards to appease some people who are likely to vote for me anyway. I’m going to come out and say I have no plans on touching same-sex marriage. I’m the family values candidate or all families, take it or leave it.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 200001,
         "fields": {
-            "question": "question_20a",
-            "description": "I think we’re going to have a red wave."
+            "question": `question_20a`,
+            "description": `I think we’re going to have a red wave.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 200002,
         "fields": {
-            "question": "question_20b",
-            "description": "I think we’re going to have a red wave."
+            "question": `question_20b`,
+            "description": `I think we’re going to have a red wave.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 200003,
         "fields": {
-            "question": "question_20c",
-            "description": "I think we’re going to have a red wave."
+            "question": `question_20c`,
+            "description": `I think we’re going to have a red wave.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 210001,
         "fields": {
-            "question": "question_21",
-            "description": "Christians are the most persecuted religious group in the world. Whether it be by Jihadi terror or by Godless communists. Both now, and when I get re-elected, I will be the defender of Christians worldwide, giving them priority status when entering the United States."
+            "question": `question_21`,
+            "description": `Christians are the most persecuted religious group in the world. Whether it be by Jihadi terror or by Godless communists. Both now, and when I get re-elected, I will be the defender of Christians worldwide, giving them priority status when entering the United States.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 210002,
         "fields": {
-            "question": "question_21",
-            "description": "Look. My policy is America First. I am for immigration, if it directly benefits American interests. I will expand President Trump’s plan of giving a green card to any student who has graduated an American university, to ensure America attracts the best and the brightest, and so we can continue to soar above and beyond."
+            "question": `question_21`,
+            "description": `Look. My policy is America First. I am for immigration, if it directly benefits American interests. I will expand President Trump’s plan of giving a green card to any student who has graduated an American university, to ensure America attracts the best and the brightest, and so we can continue to soar above and beyond.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 210003,
         "fields": {
-            "question": "question_21",
-            "description": "Immigration isn’t a hot button issue right now. Simply remind America of the good work we have done securing our border, remind them how awful the border would be under a Newsom administration, and move on."
+            "question": `question_21`,
+            "description": `Immigration isn’t a hot button issue right now. Simply remind America of the good work we have done securing our border, remind them how awful the border would be under a Newsom administration, and move on.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 210004,
         "fields": {
-            "question": "question_21",
-            "description": "Thanks to the last 8 years, we have made our borders the most secure they have ever been. The borders are closed, we have enough people, competition is down, wages are up. Let’s focus on making the best out of the people we have before we invite any more."
+            "question": `question_21`,
+            "description": `Thanks to the last 8 years, we have made our borders the most secure they have ever been. The borders are closed, we have enough people, competition is down, wages are up. Let’s focus on making the best out of the people we have before we invite any more.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 220001,
         "fields": {
-            "question": "question_22",
-            "description": "Newsom isn’t one to talk. His home state of California has one of the highest costs of living of any state. While certainly, there are things we could have done better, Newsom’s actions show he’s not the one to get us out of it."
+            "question": `question_22`,
+            "description": `Newsom isn’t one to talk. His home state of California has one of the highest costs of living of any state. While certainly, there are things we could have done better, Newsom’s actions show he’s not the one to get us out of it.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 220002,
         "fields": {
-            "question": "question_22",
-            "description": "And what would you do to fix it? Import millions of illegal immigrants to work for subsistence wages? Export our factories abroad for the profits of global elites? If you want to copy California’s “success” to the rest of the country, I think I speak for all of us when I say “no thank you.”"
+            "question": `question_22`,
+            "description": `And what would you do to fix it? Import millions of illegal immigrants to work for subsistence wages? Export our factories abroad for the profits of global elites? If you want to copy California’s “success” to the rest of the country, I think I speak for all of us when I say “no thank you.”`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 220003,
         "fields": {
-            "question": "question_22",
-            "description": "We’ve been trying to grapple with a problem enveloping the entire world. Look at Canada, look at China, no one can compare to our prosperity. Fact of the matter is that the age of globalism is over. Newsom can promise anything he wants, but it isn’t coming back."
+            "question": `question_22`,
+            "description": `We’ve been trying to grapple with a problem enveloping the entire world. Look at Canada, look at China, no one can compare to our prosperity. Fact of the matter is that the age of globalism is over. Newsom can promise anything he wants, but it isn’t coming back.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 220004,
         "fields": {
-            "question": "question_22",
-            "description": "We’ve brought back jobs to millions across the Midwest. We’ve taken back America’s status as a manufacturing superpower. We’ve laid low the Chinese dragon and sent Americans to the very stars! Believe me, my fellow Americans, the golden age of America in within our sights."
+            "question": `question_22`,
+            "description": `We’ve brought back jobs to millions across the Midwest. We’ve taken back America’s status as a manufacturing superpower. We’ve laid low the Chinese dragon and sent Americans to the very stars! Believe me, my fellow Americans, the golden age of America in within our sights.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 230001,
         "fields": {
-            "question": "question_23",
-            "description": "I stand without compromise by the love of my life. Though we certainly have our differences, our bond is one that can’t be replicated elsewhere. This doesn’t make me any less of a Christian, or a devoted follower of God. Even though she is not a Christian, I love her and stand by her without reservation. That is what marriage means."
+            "question": `question_23`,
+            "description": `I stand without compromise by the love of my life. Though we certainly have our differences, our bond is one that can’t be replicated elsewhere. This doesn’t make me any less of a Christian, or a devoted follower of God. Even though she is not a Christian, I love her and stand by her without reservation. That is what marriage means.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 230002,
         "fields": {
-            "question": "question_23",
-            "description": "I stand without compromise by the love of my life. Though we certainly have our differences, our bond is one that can’t be replicated elsewhere. This doesn’t make me any less of a Christian, or a devoted follower of God. Even though she is not a Christian, I love her and stand by her without reservation. That is what marriage means."
+            "question": `question_23`,
+            "description": `I stand without compromise by the love of my life. Though we certainly have our differences, our bond is one that can’t be replicated elsewhere. This doesn’t make me any less of a Christian, or a devoted follower of God. Even though she is not a Christian, I love her and stand by her without reservation. That is what marriage means.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 240001,
         "fields": {
-            "question": "question_24",
-            "description": "It’s not the United States who is the problem. China builds a new coal factory every single day, and is dumping more trash in the oceans than we are. This entire thing is far outside of our control. We have to simply endure this new world, we don’t have any other choice."
+            "question": `question_24`,
+            "description": `It’s not the United States who is the problem. China builds a new coal factory every single day, and is dumping more trash in the oceans than we are. This entire thing is far outside of our control. We have to simply endure this new world, we don’t have any other choice.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 240002,
         "fields": {
-            "question": "question_24",
-            "description": "America should absolutely adopt clean energy, but wind and solar just don’t work, look at Germany. They shut down all of their nuclear plants and they’ve started burning lignite! We need to increase our energy independence, so we’re not shipping in energy from abroad, and we need to go big on nuclear."
+            "question": `question_24`,
+            "description": `America should absolutely adopt clean energy, but wind and solar just don’t work, look at Germany. They shut down all of their nuclear plants and they’ve started burning lignite! We need to increase our energy independence, so we’re not shipping in energy from abroad, and we need to go big on nuclear.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 240003,
         "fields": {
-            "question": "question_24",
-            "description": "I just don’t believe that there is any reason to believe in man-made climate change. The science is still out on this, and I think it’s just a bit too much to throw trillions of dollars to the wind for the sake of some scientific speculation."
+            "question": `question_24`,
+            "description": `I just don’t believe that there is any reason to believe in man-made climate change. The science is still out on this, and I think it’s just a bit too much to throw trillions of dollars to the wind for the sake of some scientific speculation.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 240004,
         "fields": {
-            "question": "question_24",
-            "description": "Fine, maybe it’s about time we finally invested in wind and solar. But these things should still be dictated by the market, and we still have to invest in gas and pipelines. It’s cleaner than coal and will save on emissions from trucks."
+            "question": `question_24`,
+            "description": `Fine, maybe it’s about time we finally invested in wind and solar. But these things should still be dictated by the market, and we still have to invest in gas and pipelines. It’s cleaner than coal and will save on emissions from trucks.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 250001,
         "fields": {
-            "question": "question_25",
-            "description": "Target the Progressive voters, I know this sounds insane but hear me out. We don’t need to get them to vote for us, we just need to depress their turnout. Newsom has betrayed their trust and betrayed the minorities he was supposed to protect. Put it  in an ad and play it all over the blue coasts."
+            "question": `question_25`,
+            "description": `Target the Progressive voters, I know this sounds insane but hear me out. We don’t need to get them to vote for us, we just need to depress their turnout. Newsom has betrayed their trust and betrayed the minorities he was supposed to protect. Put it  in an ad and play it all over the blue coasts.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 250002,
         "fields": {
-            "question": "question_25",
-            "description": "Compare and contrast our governing records. I’ve kept America great and got it to thrive during one of most challenging periods in world history. Newsom ran California into the ground during the Golden Years of the country’s longest bull run. It’s no contest."
+            "question": `question_25`,
+            "description": `Compare and contrast our governing records. I’ve kept America great and got it to thrive during one of most challenging periods in world history. Newsom ran California into the ground during the Golden Years of the country’s longest bull run. It’s no contest.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 250003,
         "fields": {
-            "question": "question_25",
-            "description": "He’s coming for your taxes, he’s coming for your wallet. If you’re worried about cost of living, California has the worst cost of living in the entire country. Why on Earth is Newsom an authority to fix things? At least vote for the lesser of two evils."
+            "question": `question_25`,
+            "description": `He’s coming for your taxes, he’s coming for your wallet. If you’re worried about cost of living, California has the worst cost of living in the entire country. Why on Earth is Newsom an authority to fix things? At least vote for the lesser of two evils.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 250004,
         "fields": {
-            "question": "question_25",
-            "description": "Newsom is a representation of everything wrong with the Regime. A corporate, bureaucratic monster who only perpetuates the Regime’s power. We have to reject the Regime, reject the bureaucracy, wholesale!"
+            "question": `question_25`,
+            "description": `Newsom is a representation of everything wrong with the Regime. A corporate, bureaucratic monster who only perpetuates the Regime’s power. We have to reject the Regime, reject the bureaucracy, wholesale!`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 260001,
         "fields": {
-            "question": "question_26",
-            "description": "Let the cities burn."
+            "question": `question_26`,
+            "description": `Let the cities burn.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 270001,
         "fields": {
-            "question": "question_27",
-            "description": "Evacuate the cities! The cities are lost, leave. Move to the countryside and to redder states. Let them burn their own cities to the ground. Let them live with the consequences of their own actions."
+            "question": `question_27`,
+            "description": `Evacuate the cities! The cities are lost, leave. Move to the countryside and to redder states. Let them burn their own cities to the ground. Let them live with the consequences of their own actions.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 270002,
         "fields": {
-            "question": "question_27",
-            "description": "Start recording. One day these progressives will be extinct. When we pass this knowledge on to our children, show them what insanity we lived through, and make sure that it will never happen again."
+            "question": `question_27`,
+            "description": `Start recording. One day these progressives will be extinct. When we pass this knowledge on to our children, show them what insanity we lived through, and make sure that it will never happen again.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 270003,
         "fields": {
-            "question": "question_27",
-            "description": "We have to send in the National Guard. In every state we control, get the National Guard to head into the cities. Send in the reserve, send in the Army. Do everything we can to restore law and order."
+            "question": `question_27`,
+            "description": `We have to send in the National Guard. In every state we control, get the National Guard to head into the cities. Send in the reserve, send in the Army. Do everything we can to restore law and order.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 270004,
         "fields": {
-            "question": "question_27",
-            "description": "That does it. We’re tired of not fighting back, we’re tired of always playing defense. These looters have f---ed around, and now they’re about to find out. It’s a stand your ground state. If they come at us, open fire!"
+            "question": `question_27`,
+            "description": `That does it. We’re tired of not fighting back, we’re tired of always playing defense. These looters have f---ed around, and now they’re about to find out. It’s a stand your ground state. If they come at us, open fire!`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 280001,
         "fields": {
-            "question": "question_28",
-            "description": "I have no words."
+            "question": `question_28`,
+            "description": `I have no words.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 280002,
         "fields": {
-            "question": "hidden",
-            "description": "To everyone out there supporting me, we have to stop the violence. Only retaliate in self defense. Stand back and stand down."
+            "question": `hidden`,
+            "description": `To everyone out there supporting me, we have to stop the violence. Only retaliate in self defense. Stand back and stand down.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 290001,
         "fields": {
-            "question": "question_29",
-            "description": "Newsom is a soft-on-crime, out of touch progressive, whose policies allowed looters and shoplifters to run roughshod over California. Newsom won’t crack down if they ever reach your neighborhoods. I will."
+            "question": `question_29`,
+            "description": `Newsom is a soft-on-crime, out of touch progressive, whose policies allowed looters and shoplifters to run roughshod over California. Newsom won’t crack down if they ever reach your neighborhoods. I will.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 290002,
         "fields": {
-            "question": "question_29",
-            "description": "Newsom is not your friend. He’s a corrupt, out-of-touch, corporate warhawk whose only loyalty is to corporate donors. He’s never had any affection for the working and middle class. His policies will only benefit himself and his cronies, not you."
+            "question": `question_29`,
+            "description": `Newsom is not your friend. He’s a corrupt, out-of-touch, corporate warhawk whose only loyalty is to corporate donors. He’s never had any affection for the working and middle class. His policies will only benefit himself and his cronies, not you.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 290003,
         "fields": {
-            "question": "question_29",
-            "description": "Newsom is a radical progressive who wants to bring back the idea of transgenderism in schools, teaching anti-American, woke ideology, and teaching white kids to hate themselves with Marxist critical theory. They’re coming for your kids, I’m just in the way."
+            "question": `question_29`,
+            "description": `Newsom is a radical progressive who wants to bring back the idea of transgenderism in schools, teaching anti-American, woke ideology, and teaching white kids to hate themselves with Marxist critical theory. They’re coming for your kids, I’m just in the way.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 290004,
         "fields": {
-            "question": "question_29",
-            "description": "Mention my credentials and my accomplishments, but honestly, the battle for the country isn’t located here. It’s in working class urban areas and turning out the rural countryside. Do what we can to hold the suburbs but go to city and outskirts and play our greatest hits."
+            "question": `question_29`,
+            "description": `Mention my credentials and my accomplishments, but honestly, the battle for the country isn’t located here. It’s in working class urban areas and turning out the rural countryside. Do what we can to hold the suburbs but go to city and outskirts and play our greatest hits.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 300011,
         "fields": {
-            "question": "hidden",
-            "description": "We’re so close, we need to flip the rest of Silicon Valley on our side. Musk, Thiel, Ramaswamy… I need you to do everything in your power to flip them to our side. We’re the party of the future, the Democrats are the party of the past."
+            "question": `hidden`,
+            "description": `We’re so close, we need to flip the rest of Silicon Valley on our side. Musk, Thiel, Ramaswamy… I need you to do everything in your power to flip them to our side. We’re the party of the future, the Democrats are the party of the past.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 300012,
         "fields": {
-            "question": "hidden",
-            "description": "The Democratic stranglehold on the African American community has continued to slip, let’s cut down on their margin and bring them home to the party of tomorrow. The Democrats haven’t helped your communities, we have. The Democrats won’t fight for Christian values, we will."
+            "question": `hidden`,
+            "description": `The Democratic stranglehold on the African American community has continued to slip, let’s cut down on their margin and bring them home to the party of tomorrow. The Democrats haven’t helped your communities, we have. The Democrats won’t fight for Christian values, we will.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 300013,
         "fields": {
-            "question": "hidden",
-            "description": "Finish the job in the Midwest. These hard-working men and women were abandoned by the uniparty elite for so long. And now we have brought American jobs back to the great Midwest. The great American dream, I’m bringing it home."
+            "question": `hidden`,
+            "description": `Finish the job in the Midwest. These hard-working men and women were abandoned by the uniparty elite for so long. And now we have brought American jobs back to the great Midwest. The great American dream, I’m bringing it home.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 300014,
         "fields": {
-            "question": "hidden",
-            "description": "We need to maximize turnout among rural communities. The frontier, outbound people. Those who make their own way, and just want the government to leave them alone. We’re going to make this country the way it used to be."
+            "question": `hidden`,
+            "description": `We need to maximize turnout among rural communities. The frontier, outbound people. Those who make their own way, and just want the government to leave them alone. We’re going to make this country the way it used to be.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 300021,
         "fields": {
-            "question": "hidden",
-            "description": "We’re so close, we need to flip the rest of Silicon Valley on our side. Musk, Thiel, Ramaswamy… I need you to do everything in your power to flip them to our side. We’re the party of the future, the Democrats are the party of the past."
+            "question": `hidden`,
+            "description": `We’re so close, we need to flip the rest of Silicon Valley on our side. Musk, Thiel, Ramaswamy… I need you to do everything in your power to flip them to our side. We’re the party of the future, the Democrats are the party of the past.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 300022,
         "fields": {
-            "question": "hidden",
-            "description": "The Democratic stranglehold on the African American community has continued to slip, let’s cut down on their margin and bring them home to the party of tomorrow. The Democrats haven’t helped your communities, we have. The Democrats won’t fight for Christian values, we will."
+            "question": `hidden`,
+            "description": `The Democratic stranglehold on the African American community has continued to slip, let’s cut down on their margin and bring them home to the party of tomorrow. The Democrats haven’t helped your communities, we have. The Democrats won’t fight for Christian values, we will.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 300023,
         "fields": {
-            "question": "hidden",
-            "description": "Finish the job in the Midwest. These hard-working men and women were abandoned by the uniparty elite for so long. And now we have brought American jobs back to the great Midwest. The great American dream, I’m bringing it home."
+            "question": `hidden`,
+            "description": `Finish the job in the Midwest. These hard-working men and women were abandoned by the uniparty elite for so long. And now we have brought American jobs back to the great Midwest. The great American dream, I’m bringing it home.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 300024,
         "fields": {
-            "question": "hidden",
-            "description": "We need to maximize turnout among rural communities. The frontier, outbound people. Those who make their own way, and just want the government to leave them alone. We’re going to make this country the way it used to be."
+            "question": `hidden`,
+            "description": `We need to maximize turnout among rural communities. The frontier, outbound people. Those who make their own way, and just want the government to leave them alone. We’re going to make this country the way it used to be.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 310001,
         "fields": {
-            "question": "question_31_economic_crash",
-            "description": "Oh God."
+            "question": `question_31_economic_crash`,
+            "description": `Oh God.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 310002,
         "fields": {
-            "question": "question_31_reindustrialization",
-            "description": "We brought it home."
+            "question": `question_31_reindustrialization`,
+            "description": `We brought it home.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 310003,
         "fields": {
-            "question": "question_31_china_taiwan_war",
-            "description": "Oh God."
+            "question": `question_31_china_taiwan_war`,
+            "description": `Oh God.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 310004,
         "fields": {
-            "question": "question_31_slow_growth",
-            "description": "Finally, it’s over."
+            "question": `question_31_slow_growth`,
+            "description": `Finally, it’s over.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 310005,
         "fields": {
-            "question": "question_31_recovering_economy",
-            "description": "The future is looking bright."
+            "question": `question_31_recovering_economy`,
+            "description": `The future is looking bright.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 310006,
         "fields": {
-            "question": "question_31_stagnating_economy",
-            "description": "It is what it is."
+            "question": `question_31_stagnating_economy`,
+            "description": `It is what it is.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 320001,
         "fields": {
-            "question": "question_32",
-            "description": "Hammer him on illegal immigration, how his party’s policies have destroyed this country with illegal migrants, supressing wages, destroying jobs. Bringing in crime, drugs, and ripping apart the fabric of our communities."
+            "question": `question_32`,
+            "description": `Hammer him on illegal immigration, how his party’s policies have destroyed this country with illegal migrants, supressing wages, destroying jobs. Bringing in crime, drugs, and ripping apart the fabric of our communities.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 320002,
         "fields": {
-            "question": "question_32",
-            "description": "Hammer him on economic issues, how his party’s policies destroyed the lives of ordinary, working-class Americans. How regulations destroyed family businesses, bankrupted the middle class, and caused the biggest exodus in the 21st century."
+            "question": `question_32`,
+            "description": `Hammer him on economic issues, how his party’s policies destroyed the lives of ordinary, working-class Americans. How regulations destroyed family businesses, bankrupted the middle class, and caused the biggest exodus in the 21st century.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 320003,
         "fields": {
-            "question": "question_32",
-            "description": "Hammer him on social issues, how his party’s policies sought to break apart the nuclear family, atomized our communities, convinced men that they were women, and created a generation of depressed, lonely drifters."
+            "question": `question_32`,
+            "description": `Hammer him on social issues, how his party’s policies sought to break apart the nuclear family, atomized our communities, convinced men that they were women, and created a generation of depressed, lonely drifters.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 320004,
         "fields": {
-            "question": "question_32",
-            "description": "Hammer him on bureaucracy, how his party’s policies have destroyed opportunity in America, strangled our nation’s soul, and gave up the country to the whims of bureaucratic managers, and the ever-growing technocratic machine."
+            "question": `question_32`,
+            "description": `Hammer him on bureaucracy, how his party’s policies have destroyed opportunity in America, strangled our nation’s soul, and gave up the country to the whims of bureaucratic managers, and the ever-growing technocratic machine.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 330001,
         "fields": {
-            "question": "question_33",
-            "description": "“The United States reaffirms its unwavering support for the State of Israel and its right to exist as a secure and sovereign nation within recognized borders…”"
+            "question": `question_33`,
+            "description": `“The United States reaffirms its unwavering support for the State of Israel and its right to exist as a secure and sovereign nation within recognized borders…”`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 340001,
         "fields": {
-            "question": "question_34",
-            "description": "The silent majority… Can you hear me?"
+            "question": `question_34`,
+            "description": `The silent majority… Can you hear me?`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 350001,
         "fields": {
-            "question": "question_35",
-            "description": "Home. Back to Ohio where it all began. I have to remember where I came from. I need to go visit my family and hug my wife. She’s been through so much this campaign."
+            "question": `question_35`,
+            "description": `Home. Back to Ohio where it all began. I have to remember where I came from. I need to go visit my family and hug my wife. She’s been through so much this campaign.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 350002,
         "fields": {
-            "question": "question_35",
-            "description": "There’s only one person I can think of visiting right now. The old man Don from Mar-a-Lago, and good old Scranton Joe from Pennsylvania. They’ve started playing golf after retirement I’ve heard. Let’s give them a visit."
+            "question": `question_35`,
+            "description": `There’s only one person I can think of visiting right now. The old man Don from Mar-a-Lago, and good old Scranton Joe from Pennsylvania. They’ve started playing golf after retirement I’ve heard. Let’s give them a visit.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 350003,
         "fields": {
-            "question": "question_35",
-            "description": "To my people. Let’s host one last rally here in New York City, just for old time’s sake. One more hurrah for 4 more years."
+            "question": `question_35`,
+            "description": `To my people. Let’s host one last rally here in New York City, just for old time’s sake. One more hurrah for 4 more years.`
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 350004,
         "fields": {
-            "question": "question_35",
-            "description": "To a church. I’ve spent so long campaigning for myself that I’ve weakened my relationship with God. Find me a good church, I need to pray."
+            "question": `question_35`,
+            "description": `To a church. I’ve spent so long campaigning for myself that I’ve weakened my relationship with God. Find me a good church, I need to pray.`
         }
     },
 
