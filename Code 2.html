@@ -11460,9 +11460,9 @@ endingPicker = (out, totv, aa, quickstats) => {
 		add_slide(ending_image_dict["the_road_ahead"],slide_dict["the_road_ahead"], false, false);
 		add_slide(ending_image_dict["thank_you"],slide_dict["thank_you"], false, false);
 		add_slide(ending_image_dict["ors_roas"],slide_dict["american_flyby"], false, true);
+		unlockAchievement("The Final Countdown");
 		setImage(slides[0][0]);
 		return slides[0][1];
-		unlockAchievement("The Final Countdown");
 	} else if (quickstats[0] >= 350) {
 		add_slide(ending_image_dict["vance_joy"],slide_dict["vance_great_victory"], true, false);
 	} else if (quickstats[0] >= 270) {
